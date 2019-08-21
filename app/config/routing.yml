@@ -1,0 +1,5 @@
+c2_i_collect:
+    resource: "@C2ICollectBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

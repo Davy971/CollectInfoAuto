@@ -1,0 +1,3 @@
+c2_i_collect_homepage:
+    path:     /
+    defaults: { _controller: C2ICollectBundle:Default:index }
