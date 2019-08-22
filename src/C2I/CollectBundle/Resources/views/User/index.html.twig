@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<h2>Fiche de prospection </h2>  
+<br/>  
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nom </th>
+			<th>Prénom</th>
+			<th>Date de naissance</th>
+			<th>Permis?</th>
+			<th>Voiture</th>
+			<th>Couleur</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for us in user %}
+		<tr class="info">
+			<td> {{us.firstname}} </td>
+			<td> 
+				{{us.lastname}}
+			</td>
+			<td>
+			  {{us.dateOfBirth|date("d/m/Y")}}
+			</td>
+			<td>
+				{{us.hasDriverLicence ? 'Yes' : 'No'}}
+			</td>
+			<td>{{us.car.name}}</td>
+			<td>{{us.color.name}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+</div>
+
+{% endblock %}

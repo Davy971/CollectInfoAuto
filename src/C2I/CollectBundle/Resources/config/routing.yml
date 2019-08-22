@@ -29,3 +29,15 @@ collect_car_edit:
 collect_car_del:
     path: /collect/car/del/{id}
     defaults: { _controller: C2ICollectBundle:Car:delete }
+
+collect_user_index:
+    path: /collect/user/info/index
+    defaults: { _controller: C2ICollectBundle:User:index }
+
+collect_user_info:
+    path: /
+    defaults: { _controller: C2ICollectBundle:User:info_user }
+
+
+
+
