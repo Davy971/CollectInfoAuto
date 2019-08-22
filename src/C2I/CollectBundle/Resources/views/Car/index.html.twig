@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<h2>Liste des couleurs </h2>  
+<br/>  
+<table class="table">
+	<thead>
+		<tr>
+			<th>Modèle </th>
+			<th>Couleur</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for cr in car %}
+		<tr class="info">
+			<td> {{cr.name}} </td>
+			<td> 
+				{% if cr.color != NULL %}
+					{% for cl in cr.color %}
+						- {{cl.name}}
+					{% endfor %}
+				{% endif%}
+			</td>
+			<td>
+			  <a href="{{path('collect_car_edit', {'id' : cr.id})}}">modifier</a>-<a href="{{path('collect_car_del', {'id' : cr.id})}}">supprimer </a>
+			</td>
+			<td></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="row">
+	<a class="btn btn-primary" href="{{path('collect_car_add')}}">Ajouter un nouveau modèle de voiture</a>
+</div>
+</div>
+
+{% endblock %}

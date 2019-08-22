@@ -1,13 +1,74 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!DOCTYPE HTML>
+<html lang="fr">
+ 
+ {{ include("::entete.html.twig") }}
+  <body>
+  <style>
+            html, body
+            {
+            height:100%;
+            width:100%;
+            padding:0;
+            margin:0;
+            }
+            #page {
+              min-height: 100vh;
+              display:flex;
+              flex-direction: column;
+
+            }
+            #content{
+
+              flex-grow:1;
+              padding-top: 70px;
+            }
+            #footer
+            {
+                background-color: #000;
+                color: #fff;
+            }
+            .navbar
+            {
+                padding-top: 10px;
+            }
+
+    </style>
+    <div id="page"> 
+    <!-- navigation section -->
+       {{ include("::barre_navigation.html.twig")}}
+       
+        {% block affichage %}
+        
+
+        {% endblock %}
+       
+    <div id="content">
+      <main>
+        <div class="container">
+        {% for message in app.flashes('success') %}
+          <div class="alert alert-success">
+          {{ message }}
+          </div>
+        {% endfor %}
+        </div>
+        {% block body %}
+        {% endblock %}
+
+        {% block menu %}
+        {% endblock %}
+
+    </main>
+    </div>
+    <div id="footer">
+    <!-- footer section -->
+  
+    {{ include("::footer.html.twig")}}
+    </div>  
+    </div>
+    <!-- JAVASCRIPT JS FILES -->       
+    {%block javascripts %}
+      {{ include("::javascript.html.twig")}}
+    {% endblock %}
+
+  </body>
 </html>

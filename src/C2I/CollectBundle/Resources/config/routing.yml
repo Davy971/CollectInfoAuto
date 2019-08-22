@@ -1,3 +1,31 @@
-c2_i_collect_homepage:
-    path:     /
-    defaults: { _controller: C2ICollectBundle:Default:index }
+collect_color_index:
+    path: /collect/color/index
+    defaults: { _controller: C2ICollectBundle:Color:index }
+
+collect_color_add:
+    path: /collect/color/add
+    defaults: { _controller: C2ICollectBundle:Color:add }
+
+collect_color_edit:
+    path: /collect/color/edit/{id}
+    defaults: { _controller: C2ICollectBundle:Color:edit }
+
+collect_color_del:
+    path: /collect/color/del/{id}
+    defaults: { _controller: C2ICollectBundle:Color:delete }
+
+collect_car_index:
+    path: /collect/car/index
+    defaults: { _controller: C2ICollectBundle:Car:index }
+    
+collect_car_add:
+    path: /collect/car/add
+    defaults: { _controller: C2ICollectBundle:Car:add }
+
+collect_car_edit:
+    path: /collect/car/edit/{id}
+    defaults: { _controller: C2ICollectBundle:Car:edit }
+
+collect_car_del:
+    path: /collect/car/del/{id}
+    defaults: { _controller: C2ICollectBundle:Car:delete }

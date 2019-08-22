@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<h2>Liste des couleurs </h2>  
+<br/>  
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom de la couleur</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for clr in color %}
+		<tr class="info">
+			<td> {{clr.id}} </td>
+			<td> {{clr.name}} </td>
+			<td>
+			  <a href="{{path('collect_color_edit', {'id' : clr.id})}}">modifier</a>-<a href="{{path('collect_color_del', {'id' : clr.id})}}">supprimer </a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="row">
+	<a class="btn btn-primary" href="{{path('collect_color_add')}}">Ajouter nouvelle couleur</a>
+</div>
+</div>
+
+{% endblock %}
